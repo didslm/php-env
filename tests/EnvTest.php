@@ -22,7 +22,7 @@ class EnvTest extends TestCase
         Env::populate($config);
 
         $this->assertEquals('some_host_123', $config->mysqlConfig->dbHost);
-        $this->assertEmpty($config->database);
+        $this->assertEmpty($config->mysqlConfig->database);
         $this->assertNotEmpty($config->mysqlConfig);
     }
 
