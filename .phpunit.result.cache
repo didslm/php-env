@@ -1,0 +1,1 @@
+{"version":1,"defects":{"TestEnv::shouldFillDataFromEnvVariables":4,"Tests\\TestEnv::shouldFillDataFromEnvVariables":4,"Tests\\TestEnv::testShouldFillDataFromEnvVariables":4},"times":{"TestEnv::shouldFillDataFromEnvVariables":0.004,"Tests\\TestEnv::shouldFillDataFromEnvVariables":0.003,"Tests\\TestEnv::testShouldFillDataFromEnvVariables":0.004}}
