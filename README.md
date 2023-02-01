@@ -3,6 +3,13 @@ A library which helps you load your environment variables into php classes.
 
 ```php
 
+class Config 
+{
+    #[EnvObj]
+    public DbConfig $mysqlConfig;
+}
+
+
 class DbConfig
 {
     #[EnvName('DB_HOST')]
@@ -20,7 +27,8 @@ $config = new DbConfig();
 //The next line will populate the class properties with the env variables if they exist.
 Env::populate($config);
 
-$config = new Config();
+$allConfig = new Config();
+Env::populate($allConfig);
 
 
 ```
