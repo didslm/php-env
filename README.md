@@ -20,4 +20,7 @@ $config = new DbConfig();
 //The next line will populate the class properties with the env variables if they exist.
 Env::populate($config);
 
+$config = new Config();
+
+
 ```

@@ -11,8 +11,9 @@ permissions:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
+    env:
+      DB_HOST: some_host_123
 
     steps:
     - uses: actions/checkout@v3
