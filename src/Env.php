@@ -21,7 +21,7 @@ class Env
             } else {
                 [$attr] = $property->getAttributes(EnvName::class);
                 [$envName] = $attr->getArguments();
-                $obj->{$property->getName()} = getenv($envName) ?? $dotEnvLoader->getEnvVar($envName);
+                $obj->{$property->getName()} = empty(trim(getenv($envName))) === true ? $dotEnvLoader->getEnvVar($envName) : trim(getenv($envName));
             }
 
 
