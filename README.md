@@ -42,9 +42,38 @@ Env::populate($config);
 
 $allConfig = new Config();
 Env::populate($allConfig);
-
-
 ```
+
+### Advanced Usage
+
+- **Default values**  
+  Provide a fallback that is used when the environment variable (and `.env`) do not provide a value.
+  ```php
+  class Defaults
+  {
+      #[EnvName('APP_REGION', default: 'eu-west-1')]
+      public string $region;
+  }
+  ```
+
+- **Strong typing**  
+  Scalar properties are automatically converted to the correct PHP type (`int`, `float`, `bool`, `string`). For booleans the loader understands `1/0`, `true/false`, `on/off`, and `yes/no`.
+
+- **Nested configuration objects**  
+  Use `EnvObj` to hydrate nested objects. Optionally provide the class name if it differs from the property type.
+  ```php
+  class Services
+  {
+      #[EnvObj(ServiceConfig::class)]
+      public ServiceConfig $billing;
+  }
+  ```
+
+- **Custom `.env` location**  
+  `Env::populate($config, new DotEnvLoader($projectRoot, 'custom.env'));` lets you point the loader to a specific directory or file without changing the default behaviour.
+
+- **Helpful errors**  
+  When a non-nullable property cannot be populated, the library now throws `Env\Exception\MissingEnvironmentValue` with clear information about the missing variable.
 
 ## Troubleshooting
 
